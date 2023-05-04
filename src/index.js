@@ -35,15 +35,17 @@ const BookList = () => {
     </section>
   )
 }
+//Whne we use EJS in react we can create variables either out of the function or inside of it. We can also create a new file, add the variables and import them
+const author = 'Luke Russert'
+const img =
+  'https://images-na.ssl-images-amazon.com/images/I/71y4oz+kcrL._AC_UL600_SR600,400_.jpg'
 const Book = () => {
+  const title = 'Look For Me There'
   return (
     <article className="book">
-      <img
-        src="https://images-na.ssl-images-amazon.com/images/I/71y4oz+kcrL._AC_UL600_SR600,400_.jpg"
-        alt="Look For Me There"
-      />
-      <h2>Look For Me There</h2>
-      <h4>Luke Russert</h4>
+      <img src={img} alt={title} />
+      <h2>{title}</h2>
+      <h4>{author}</h4>
     </article>
   )
 }
