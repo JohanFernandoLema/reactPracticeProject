@@ -4,7 +4,8 @@ import ReactDOM from 'react-dom/client'
 
 //When we create our own file we have to import it using the path it has.
 import './index.css'
-
+import { books } from './books'
+import { Book } from './Book'
 //componetnt = function. When we create a componetn we must start the name variable with capitalizef
 // function Greeting() {
 //   //after we declare a component we always have to return something that is in html
@@ -24,29 +25,68 @@ import './index.css'
 //When we render a component we have to both open and clse the function we created
 // root.render(<Greeting></Greeting>)
 
+// const names = ['john', 'peter']
 const BookList = () => {
   // We can add as many components as we wish as long as they are inside the parent element render will render them.
   return (
-    <section className="booklist">
-      <Book />
-      <Book />
-      <Book />
-      <Book />
-    </section>
+    {
+      /* //We can add our arguments in our objects, however at the moment that we navigate to our website we will see those properties reflected only in the object that we mentioned them
+    //Even though the JSX contains all the fields it will render only those who have the props on it. */
+    },
+    {
+      /* When we want to render a piece of code only in one of our objects we
+        have to references those pieces of code within the object that we want
+        to deliver the output. */
+    },
+    {
+      /* We wont be able to see this output until we make use of the children element in the components destructuring */
+    },
+    (
+      // <section className="bookList">
+      //   {names.map((name) => {
+      //     return <h2>{name}</h2>
+      //   })}
+      // </section>
+      <section className="bookList">
+        <EventExamples />
+        {books.map((book) => {
+          return <Book {...book} key={book.id} />
+        })}
+      </section>
+    )
   )
 }
-//Whne we use EJS in react we can create variables either out of the function or inside of it. We can also create a new file, add the variables and import them
-const author = 'Luke Russert'
-const img =
-  'https://images-na.ssl-images-amazon.com/images/I/71y4oz+kcrL._AC_UL600_SR600,400_.jpg'
-const Book = () => {
-  const title = 'Look For Me There'
+
+const EventExamples = () => {
+  // const handleFormInput = () => {
+  //   console.log('handle form input')
+  // }
+  const handleFormInput = (e) => {
+    console.log(e.target)
+    console.log(e.targer.value)
+    console.log(e.targer.name)
+  }
+  const handleButtonClick = () => {
+    alert('handle button click')
+  }
+  const handleFormSubmission = (e) => {
+    e.preventDefault()
+    alert('form submitted')
+  }
+
   return (
-    <article className="book">
-      <img src={img} alt={title} />
-      <h2>{title}</h2>
-      <h4>{author}</h4>
-    </article>
+    <section>
+      <form onSubmit={handleFormSubmission}>
+        <h2>Typical From</h2>
+        <input
+          type="text"
+          name="example"
+          onChange={handleFormInput}
+          style={{ margin: '1rem' }}
+        />
+        <button onClick={handleButtonClick}>Click Me</button>
+      </form>
+    </section>
   )
 }
 
