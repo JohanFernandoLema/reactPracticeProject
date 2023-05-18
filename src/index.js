@@ -5,7 +5,8 @@ import ReactDOM from 'react-dom/client'
 //When we create our own file we have to import it using the path it has.
 import './index.css'
 import { books } from './books'
-import { Book } from './Book'
+import { Book } from './book'
+import { Title } from './title'
 //componetnt = function. When we create a componetn we must start the name variable with capitalizef
 // function Greeting() {
 //   //after we declare a component we always have to return something that is in html
@@ -47,48 +48,50 @@ const BookList = () => {
       //     return <h2>{name}</h2>
       //   })}
       // </section>
-      <section className="bookList">
-        <EventExamples />
-        {books.map((book) => {
-          return <Book {...book} key={book.id} />
-        })}
-      </section>
+      <React.Fragment>
+        <Title />
+        <section className="bookList">
+          {books.map((book, index) => {
+            return <Book {...book} key={book.id} idx={index} />
+          })}
+        </section>
+      </React.Fragment>
     )
   )
 }
 
-const EventExamples = () => {
-  // const handleFormInput = () => {
-  //   console.log('handle form input')
-  // }
-  const handleFormInput = (e) => {
-    console.log(e.target)
-    console.log(e.targer.value)
-    console.log(e.targer.name)
-  }
-  const handleButtonClick = () => {
-    alert('handle button click')
-  }
-  const handleFormSubmission = (e) => {
-    e.preventDefault()
-    alert('form submitted')
-  }
+// const EventExamples = () => {
+//   // const handleFormInput = () => {
+//   //   console.log('handle form input')
+//   // }
+//   const handleFormInput = (e) => {
+//     console.log(e.target)
+//     console.log(e.targer.value)
+//     console.log(e.targer.name)
+//   }
+//   const handleButtonClick = () => {
+//     alert('handle button click')
+//   }
+//   const handleFormSubmission = (e) => {
+//     e.preventDefault()
+//     alert('form submitted')
+//   }
 
-  return (
-    <section>
-      <form onSubmit={handleFormSubmission}>
-        <h2>Typical From</h2>
-        <input
-          type="text"
-          name="example"
-          onChange={handleFormInput}
-          style={{ margin: '1rem' }}
-        />
-        <button onClick={handleButtonClick}>Click Me</button>
-      </form>
-    </section>
-  )
-}
+//   return (
+//     <section>
+//       <form onSubmit={handleFormSubmission}>
+//         <h2>Typical From</h2>
+//         <input
+//           type="text"
+//           name="example"
+//           onChange={handleFormInput}
+//           style={{ margin: '1rem' }}
+//         />
+//         <button onClick={handleButtonClick}>Click Me</button>
+//       </form>
+//     </section>
+//   )
+// }
 
 // const Image = () => (
 

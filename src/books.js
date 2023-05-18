@@ -1,6 +1,7 @@
 //when exporting files to our main js we have 2 different approaches, the first one is when we export the component, object, or whatever is in our file using the export keyword at the beginning of our already mentioned type of method.
 // import { books } from './books'
 //When we use this approach we must enclose our books in curly braces
+import img3 from '../src/Assets/images/picture3.jpg'
 export const books = [
   {
     id: 1,
@@ -13,6 +14,12 @@ export const books = [
     author: 'Dr. Seuss',
     title: 'Oh, the places you will go',
     img: 'https://images-na.ssl-images-amazon.com/images/I/81a5KHEkwQL._AC_UL600_SR600,400_.jpg',
+  },
+  {
+    id: 3,
+    author: 'Dav Pilkey',
+    title: 'Dog Man',
+    img: img3,
   },
 ]
 //Second approach we must delete or remove the curly braces.
